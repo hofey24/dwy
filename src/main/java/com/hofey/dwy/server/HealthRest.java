@@ -1,5 +1,7 @@
 package com.hofey.dwy.server;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,8 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/health")
 public class HealthRest {
+    private final  Logger logger = LoggerFactory.getLogger(this.getClass());
     @RequestMapping("/index")
     public String index(){
+        logger.info("-------------");
+        logger.info("-------health------");
+        logger.info("-------------");
         return "hello spring boot";
     }
 }

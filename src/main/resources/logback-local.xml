@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <property name="LOG_HOME" value="F:\\projects\\logs\\dwyLogs\\" />
     <!--输出到文件 基本模式-->
 <!--    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
         <file>dwy.log</file>
@@ -11,7 +12,7 @@
     </appender>-->
     <!--输出到文件 按天输出-->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>F:\\projects\\logs\\dwyLogs\\dwyLogFile.log</file>
+        <file>${LOG_HOME}dwyLogFile.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--             按天轮转 -->
             <fileNamePattern>dwyLogFile.%d{yyyy-MM-dd}.log</fileNamePattern>
@@ -20,7 +21,7 @@
             <totalSizeCap>3GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
-            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
         </encoder>
     </appender>
     <!--输出到控制台-->

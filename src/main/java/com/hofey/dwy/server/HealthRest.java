@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  */
 @RestController
-@RequestMapping(value = "/health")
 public class HealthRest {
     private final  Logger logger = LoggerFactory.getLogger(this.getClass());
-    @RequestMapping("/index")
+    @RequestMapping("/")
     public String index(){
         logger.info("-------------");
         logger.info("-------health------");

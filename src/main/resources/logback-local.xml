@@ -15,7 +15,7 @@
         <file>${LOG_HOME}dwyLogFile.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--             按天轮转 -->
-            <fileNamePattern>dwyLogFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>${LOG_HOME}dwyLogFile.%d{yyyy-MM-dd}.log</fileNamePattern>
             <!--             保存 30 天的历史记录，最大大小为 30GB -->
             <maxHistory>30</maxHistory>
             <totalSizeCap>3GB</totalSizeCap>

@@ -1,5 +1,6 @@
 package com.hofey.dwy.bs.index;
 
+import com.hofey.dwy.server.vo.Result;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,5 +16,9 @@ public class IndexController {
     @GetMapping(value = "/index")
     public String index(){
         return "index controller";
+    }
+    @GetMapping(value = "/result")
+    public Result result(){
+        return Result.ok().msg("返回消息成功").putData("data");
     }
 }

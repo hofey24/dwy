@@ -16,9 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author hofey
- * @Title: 方法运行时间统计
+ * @Title: 日志切面
  * @Package
- * @Description: 统计方法运行时间
+ * @Description: 统一日志
  * @date 2019/3/1210:53
  */
 @Slf4j
@@ -33,10 +33,12 @@ public class LoggerAspect {
      4、第二个*号：表示类名，*号表示所有的类。
      5、*(..):最后这个星号表示方法名，*号表示所有的方法，后面括弧里面表示方法的参数，两个句点表示任何参数。
     */
-    @Around("execution(public * com.hofey.dwy..*Controller.*(..))")
+    //@Around("execution(public * com.hofey.dwy..*Controller.*(..))")
+    @Around("@within(org.springframework.web.bind.annotation.RestController) || @annotation(org.springframework.web.bind.annotation.RestController)")
     public Object LoggerAround(ProceedingJoinPoint joinPoint) {
+        //获取request请求
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        log.info("【ip地址】->{}",getRemortIP(request));
+        log.info(" {} \"{}\" {}",request.getMethod(),request.getRequestURI(),getRemoteIP(request));
         Object[] args = joinPoint.getArgs();
         Object[] arguments  = new Object[args.length];
         for (int i = 0; i < args.length; i++) {
@@ -47,19 +49,19 @@ public class LoggerAspect {
             }
             arguments[i] = args[i];
         }
-        log.info(" 【{}】 ## request param # {}",joinPoint.getSignature().getName(), JSONObject.toJSONString(arguments));
+        log.info("## request param -> {}",JSONObject.toJSONString(arguments));
         Object resResult = null;
         try {
             resResult = joinPoint.proceed();
         } catch (Throwable throwable) {
-            log.error(" 【{}】## response error # {}",joinPoint.getSignature().getName(),throwable.toString());
+            log.error("## response error -> {}",throwable.toString());
            /* throw new MlkException(throwable.getMessage());*/
         }
-        log.info(" 【{}】 ## response result # {}",joinPoint.getSignature().getName(),JSONObject.toJSONString(resResult));
+        log.info("## response result -> {}",JSONObject.toJSONString(resResult));
         return resResult;
     }
 
-    public String getRemortIP(HttpServletRequest request) {
+    private String getRemoteIP(HttpServletRequest request) {
         if (request.getHeader("x-forwarded-for") == null) {
             return request.getRemoteAddr();
         }

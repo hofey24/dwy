@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 /**
  * @Author: hofey
  * @Date: 2020/1/7 17:15
- * @Description:
+ * @Description: web 应用配置类
  */
 @Configuration
 public class WebAppConfig extends WebMvcConfigurationSupport {

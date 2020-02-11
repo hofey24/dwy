@@ -1,7 +1,6 @@
 package com.hofey.dwy.server.vo;
 
 
-
 /**
  * @Author: hofey
  * @Date: 2020/1/9 14:56
@@ -9,8 +8,8 @@ package com.hofey.dwy.server.vo;
  */
 public enum ResultCode {
 
-    SUCCESS(1,"操作成功"),
-    FAIL(-1,"操作失败"),
+    SUCCESS(1, "操作成功"),
+    FAIL(-1, "操作失败"),
     /* 参数错误：10001-19999 */
     PARAM_IS_INVALID(10001, "参数无效"),
     PARAM_IS_BLANK(10002, "参数为空"),
@@ -28,14 +27,12 @@ public enum ResultCode {
     SPECIFIED_QUESTIONED_USER_NOT_EXIST(30001, "某业务出现问题"),
 
 
-
     /* 系统错误：40001-49999 */
     SYSTEM_INNER_ERROR(40001, "系统繁忙，请稍后重试"),
 
 
     /* 权限错误：70001-79999 */
-    PERMISSION_NO_ACCESS(70001, "无访问权限")
-    ;
+    PERMISSION_NO_ACCESS(70001, "无访问权限");
 
     private Integer code;
     private String message;
@@ -49,9 +46,9 @@ public enum ResultCode {
     }
 
 
-    ResultCode(Integer code, String message){
-        this.code=code;
-        this.message =message;
+    ResultCode(Integer code, String message) {
+        this.code = code;
+        this.message = message;
     }
 
     public static String getMessage(String name) {

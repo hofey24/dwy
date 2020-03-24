@@ -51,10 +51,8 @@ public class LoggerAspect {
             arguments[i] = args[i];
         }
         log.info("## request param -> {}", JSONObject.toJSONString(arguments));
-        Object resResult = null;
-
+        Object resResult;
         resResult = joinPoint.proceed();
-
         log.info("## response result -> {}", JSONObject.toJSONString(resResult));
         return resResult;
     }

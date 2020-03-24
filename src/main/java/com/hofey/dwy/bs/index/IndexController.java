@@ -30,7 +30,7 @@ public class IndexController {
 
     @GetMapping(value = "/error")
     public Result error() {
-        indexService.printHello();
+        indexService.printHello("");
         return Result.ok();
     }
 }

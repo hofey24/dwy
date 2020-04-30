@@ -1,4 +1,4 @@
-package com.hofey.dwy.demo.design_pattern;
+package com.hofey.dwy.demo.design_pattern.singleton;
 
 /**
  * @Author: hofey
@@ -44,7 +44,4 @@ class LazySingleton{
     }
     private  LazySingleton() { }
 }
-class SingletonTest{
-    public static void main(String[] args) {
-    }
-}
+

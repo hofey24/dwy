@@ -38,15 +38,15 @@ public class Result implements Serializable {
     }
 
 
-    public static Result FAIL() {
+    public static Result fail() {
         return new Result().setResultCode(ResultCode.FAIL);
     }
 
-    public static Result FAIL(ResultCode resultCode) {
+    public static Result fail(ResultCode resultCode) {
         return new Result().setResultCode(resultCode);
     }
 
-    public static Result FAIL(ResultCode resultCode, Object data) {
+    public static Result fail(ResultCode resultCode, Object data) {
         return new Result().setResultCode(resultCode).putData(data);
     }
 

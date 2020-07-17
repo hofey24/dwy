@@ -1,4 +1,4 @@
-package com.hofey.dwy.demo.design_pattern.singleton;
+package com.hofey.dwy.demo.base.design_pattern.singleton;
 
 /**
  * @Author: hofey

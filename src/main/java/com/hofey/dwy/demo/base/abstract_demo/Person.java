@@ -1,4 +1,4 @@
-package com.hofey.dwy.demo.abstract_demo;
+package com.hofey.dwy.demo.base.abstract_demo;
 
 /**
  * @Author: hofey

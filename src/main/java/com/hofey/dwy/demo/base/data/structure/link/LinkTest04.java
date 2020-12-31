@@ -1,4 +1,4 @@
-package com.hofey.dwy.demo.data.structure.link;
+package com.hofey.dwy.demo.base.data.structure.link;
 
 /**
  * @Author: hofey

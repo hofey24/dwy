@@ -18,15 +18,6 @@ public class Thread01 extends Thread {
     }
 
     public static void main(String[] args) {
-/*        Thread thread = Thread.currentThread();
-        System.out.println("当前线程的名称："+thread.getName());
-        System.out.println("当前线程的优先级"+thread.getPriority());
-
-        thread.setPriority(9);
-        thread.setName("mainnew");
-        System.out.println("当前线程的名称:"+thread.getName()+" ;当前线程的优先级:"+thread.getPriority());*/
-
-
 
         Thread01 thread01 = new Thread01();
         thread01.start();

@@ -1,7 +1,5 @@
 package com.hofey.dwy.server.vo;
 
-import lombok.Data;
-
 import java.io.Serializable;
 
 /**

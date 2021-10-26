@@ -1,7 +1,7 @@
 package com.hofey.dwy.bs.index;
 
 import com.hofey.dwy.bs.index.service.IndexService;
-import com.hofey.dwy.server.vo.Result;
+import com.hofey.dwy.server.vo.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,13 +24,13 @@ public class IndexController {
     }
 
     @GetMapping(value = "/result")
-    public Result result() {
-        return Result.ok().msg("返回消息成功").putData("data");
+    public ResponseResult result() {
+        return ResponseResult.ok().msg("返回消息成功").putData("data");
     }
 
     @GetMapping(value = "/error")
-    public Result error() {
+    public ResponseResult error() {
         indexService.printHello("");
-        return Result.ok();
+        return ResponseResult.ok();
     }
 }

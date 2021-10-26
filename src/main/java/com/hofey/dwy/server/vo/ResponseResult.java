@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @Description: API 返回值 封装类
  */
 
-public class Result implements Serializable {
+public class ResponseResult implements Serializable {
     private Integer code;
     private String msg;
     private Object data;
@@ -37,43 +37,43 @@ public class Result implements Serializable {
         this.data = data;
     }
 
-    public static Result ok() {
-        return new Result().setResultCode(ResultCode.SUCCESS);
+    public static ResponseResult ok() {
+        return new ResponseResult().setResultCode(ResultCode.SUCCESS);
     }
 
     //设置消息
-    public Result code(int code) {
+    public ResponseResult code(int code) {
         this.code(code);
         return this;
     }
 
     //设置消息
-    public Result msg(String msg) {
+    public ResponseResult msg(String msg) {
         this.setMsg(msg);
         return this;
     }//设置返回对象
 
-    public Result putData(Object data) {
+    public ResponseResult putData(Object data) {
         this.setData(data);
         return this;
     }
 
 
-    public static Result fail() {
-        return new Result().setResultCode(ResultCode.FAIL);
+    public static ResponseResult fail() {
+        return new ResponseResult().setResultCode(ResultCode.FAIL);
     }
 
-    public static Result fail(ResultCode resultCode) {
-        return new Result().setResultCode(resultCode);
+    public static ResponseResult fail(ResultCode resultCode) {
+        return new ResponseResult().setResultCode(resultCode);
     }
 
-    public static Result fail(ResultCode resultCode, Object data) {
-        return new Result().setResultCode(resultCode).putData(data);
+    public static ResponseResult fail(ResultCode resultCode, Object data) {
+        return new ResponseResult().setResultCode(resultCode).putData(data);
     }
 
 
     /*设置枚举状态码最为返回值*/
-    private Result setResultCode(ResultCode resultCode) {
+    private ResponseResult setResultCode(ResultCode resultCode) {
         this.code = resultCode.code();
         this.msg = resultCode.message();
         return this;

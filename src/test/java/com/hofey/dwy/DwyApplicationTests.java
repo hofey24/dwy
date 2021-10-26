@@ -1,13 +1,10 @@
 package com.hofey.dwy;
 
-import com.alibaba.fastjson.JSONObject;
 import com.hofey.dwy.demo.plugins.mapstruct.MapStructRestful;
-import com.hofey.dwy.server.vo.Result;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;

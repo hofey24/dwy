@@ -1,7 +1,6 @@
 package com.hofey.dwy.demo.plugins.mapstruct;
 
-import com.hofey.dwy.server.vo.Result;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.hofey.dwy.server.vo.ResponseResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +19,7 @@ import java.util.Date;
 @RequestMapping("/mapstruct")
 public class MapStructRestful {
     @PostMapping("/savaUser")
-    public Result saveUser(@RequestBody UserDTO userDTO){
+    public ResponseResult saveUser(@RequestBody UserDTO userDTO){
         System.out.println("----------");
         User user = new User();
         user.setAge(18);
@@ -33,6 +32,6 @@ public class MapStructRestful {
         user1.setCreateTime(new Date());
         UserMapper.INSTANCE.updateUserFromDTO(userDTO,user1);
         System.out.println("user1 :"+user1.toString());
-        return Result.ok();
+        return ResponseResult.ok();
     }
 }

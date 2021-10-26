@@ -1,7 +1,7 @@
 package com.hofey.dwy.server.exception.handler;
 
 import com.hofey.dwy.server.exception.BusinessException;
-import com.hofey.dwy.server.vo.Result;
+import com.hofey.dwy.server.vo.ResponseResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,9 +25,9 @@ public class BusinessExceptionHandler {
     /*@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) //自定义浏览器返回状态码*/
     @ExceptionHandler(value = BusinessException.class)
     @ResponseBody
-    public Result exceptionHandler(BusinessException e) {
+    public ResponseResult exceptionHandler(BusinessException e) {
         e.printStackTrace();
-        return Result.fail().msg(e.getErrorMsg());
+        return ResponseResult.fail().msg(e.getErrorMsg());
     }
 
     /***
@@ -37,9 +37,9 @@ public class BusinessExceptionHandler {
      */
     @ExceptionHandler(value = { ConstraintViolationException.class})
     @ResponseBody
-    public Result validationException(ConstraintViolationException e){
+    public ResponseResult validationException(ConstraintViolationException e){
         e.printStackTrace();
-        return Result.fail().msg("数据校验失败");
+        return ResponseResult.fail().msg("数据校验失败");
     }
     /***
      * 算术异常
@@ -48,9 +48,9 @@ public class BusinessExceptionHandler {
      */
     @ExceptionHandler(value = ArithmeticException.class)
     @ResponseBody
-    public Result arithmeticException(ArithmeticException e){
+    public ResponseResult arithmeticException(ArithmeticException e){
         e.printStackTrace();
-        return Result.fail().msg("算术异常");
+        return ResponseResult.fail().msg("算术异常");
     }
     /***
      * 所有异常
@@ -59,8 +59,8 @@ public class BusinessExceptionHandler {
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public Result programException(Exception e){
+    public ResponseResult programException(Exception e){
         e.printStackTrace();
-        return Result.fail().msg("程序异常");
+        return ResponseResult.fail().msg("程序异常");
     }
 }

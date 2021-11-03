@@ -16,5 +16,6 @@ public class Test {
             System.out.println(rd.nextInt(100));
         }
 
+
     }
 }
